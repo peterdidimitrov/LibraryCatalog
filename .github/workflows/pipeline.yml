@@ -2,11 +2,12 @@ name: CI/CD for Online Book Library
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
       
 jobs:
-  build-and-test:
+  build_and_test:
     runs-on: ubuntu-latest
     
     steps:
@@ -16,13 +17,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '21.2.0'
+          node-version: '20.2.0'
 
       - name: Install dependencies
         run: npm install
 
       - name: Replace the config settings
-        run: echo "export const settings = { host:\"http://localhost:3030\" }" > src/config.js
+        run: echo "export const settings = { host:\"http://localhost:3030\" };" > src/config.js
 
       - name: Start BackEnd
         run: npm run start-be &
@@ -40,4 +41,4 @@ jobs:
         run: npx playwright install
 
       - name: Run tests with Playwright
-        run: npm test
+        run: npm run test-ui
