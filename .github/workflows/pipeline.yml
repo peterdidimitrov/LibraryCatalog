@@ -21,5 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Start
+        run: npm start
+
+      - name: Start server
+        run: npm run server
+
       - name: Run tests with Playwright
         run: npm run test
