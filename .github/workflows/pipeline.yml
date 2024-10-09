@@ -51,7 +51,7 @@ jobs:
       - name: Deploy to production
         uses: JorgeLNJunior/render-deploy@v1.4.4
         with:
-          service-id: ${{ secrets.RENDER_SERVICE_BE_ID }}
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
           api-key: ${{ secrets.RENDER_TOKEN }}
           wait_deploy: true
   deploy-fe:
@@ -62,6 +62,5 @@ jobs:
       - name: Deploy to production
         uses: JorgeLNJunior/render-deploy@v1.4.4
         with:
-          service-id: ${{ secrets.RENDER_SERVICE_FE_ID }}
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
           api-key: ${{ secrets.RENDER_TOKEN }}
-          wait_deploy: true
